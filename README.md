@@ -17,14 +17,14 @@ Each of the following tutorials is a stand alone guide. reading them one after a
 * In case you followed all the above tutorials, at the end you'll have the following system files:
 
  * /etc/rc.local file: (if you're using uwsgi with nginx, no need if using gunicorn with nginx)
-'''
+```bash
 /usr/local/bin/uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data
 
 exit 0
-'''
+```
 
  * /etc/init/gunicorn.conf file:
-'''
+```bash
 description "Gunicorn application server handling mysite"
 
 start on runlevel [2345]
@@ -36,13 +36,13 @@ setgid www-data
 chdir /home/me/srv/django-basic-sample/mysite
 
 exec /home/me/.virtualenvs/dev/bin/gunicorn --workers 3 --bind unix:/home/me/srv/django-basic-sample/mysite/mysite.sock mysite.wsgi:application
-'''
+```
 
-* Run
-'''
+* Run (should be autostart on restart)
+```bash
 sudo service gunicorn start
 sudo service nginx start
-'''
+```
 
 ## Running on your machine ##
 When testing it locally, it's best using [virtualenvwrapper](http://virtualenvwrapper.readthedocs.io/en/latest/install.html).
