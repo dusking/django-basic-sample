@@ -1,0 +1,20 @@
+
+#python
+*.pyc
+*.swp
+
+#django
+*.log
+*.pot
+*.db
+*.sqlite3
+
+#pycharm
+.idea
+
+#MAC folder info
+.DS_Store
+
+# virtual environment
+venv
+.env
